@@ -1,0 +1,1123 @@
+\documentclass[twocolumn]{bmcart}\usepackage{lineno}
+\usepackage{graphicx}
+
+\usepackage{adjustbox}
+\usepackage{url}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{amsthm,amsmath}
+\usepackage{graphicx}
+
+\RequirePackage[numbers]{natbib}
+\usepackage[utf8]{inputenc} \usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{url}
+
+
+
+
+\def\includegraphic{}
+\def\includegraphics{}
+
+\startlocaldefs
+\endlocaldefs
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+
+\begin{frontmatter}
+
+\begin{fmbox}
+\dochead{Research}
+
+\title{Online advertisement in a pink-colored market}
+
+
+
+\author[
+  addressref={aff1},                   corref={aff1},                       email={amir.mehrjoo@imdea.org}   ]{\inits{AM}  \snm{Amir} \fnm{Mehrjoo}}
+
+\author[
+  addressref={aff2},
+  email={rcuevas@inv.it.uc3m.es}
+]{\inits{RC} \snm{Rubén} \fnm{Cuevas}}
+
+\author[
+  addressref={aff3},
+  email={acrumin@it.uc3m.es}
+]{\inits{ÁC} \snm{Ángel} \fnm{Cuevas} }
+
+
+
+
+\address[id=aff1]{\orgname{IMDEA Networks Institute},          \city{Madrid},                              \cny{Spain}                                    }
+\address[id=aff2]{\orgdiv{Telematics Engineering Department},
+  \orgname{Universidad Carlos III of Madrid (UC3M)},
+\city{Madrid},
+  \cny{Spain}
+}
+\address[id=aff3]{\orgdiv{Telematics Engineering Department},
+  \orgname{Universidad Carlos III of Madrid (UC3M)},
+\city{Madrid},
+  \cny{Spain}
+}
+
+
+
+
+
+
+
+
+
+\begin{abstractbox}
+
+\begin{abstract} It is surprising that women are often charged more for products and services marketed explicitly to them. This phenomenon, known as the pink tax, is a major issue that questions women's buying power. Nevertheless, it is not just limited to physical products - even online advertising can be subject to this type of gender-price discrimination. That is where our research comes in. We have developed a new methodology to measure what we call the digital marketing pink tax - the additional expense of delivering advertisements to female audiences.\color{blue} Analyzing data from Facebook advertising platforms across 227 countries shows this issue is systematic. Particularly, the digital marketing pink tax is prevalent in 88\% of audiences across the world and 92\% of audiences in developed countries. Our research indicates that countries in the Middle East and Africa with a low Human Development Index (\emph{HDI}) do not experience this phenomenon. 
+
+In contrast, advertisers have to pay higher digital marketing pink tax in developed countries. Therefore, advertisers incur a median cost of 14\% more to display advertisements to women than men. However, our comprehensive investigation of 24 industries reveals that advertisers must pay up to 64\% of the digital marketing pink tax to target women in some industries. Our findings also suggest a connection between the digital marketing pink tax and the consumer pink tax - the extra charge placed on products marketed to women. Overall, our research sheds light on an important issue affecting women worldwide. Raising awareness of the digital marketing pink tax and advocating for better regulation.
+\color{black}
+
+\end{abstract}
+
+
+
+\begin{keyword}
+\kwd{Marketing}
+\kwd{Pink tax}
+\kwd{Online social platforms}
+\kwd{Digital marketing pink tax}
+\kwd{Online advertising}
+\textcolor{blue}{\kwd{Algorithmic bias}}
+\end{keyword}
+
+
+\end{abstractbox}
+\end{fmbox}
+
+\end{frontmatter}
+
+\section{Introduction}
+\color{blue}
+Various social and historical factors have been crucial in shaping gender stereotypes. Gender role stereotypes have been demonstrated in studies to have negative impacts, such as reducing females' self-esteem, lowering societal expectations, and limiting females' access to specific academic sectors, among other problems \cite{grau2016gender,lafky1996looking,cvencek2011math,sheehan2013controversies,young2018ogilvy}. 
+The emergence of feminism in the 1960s marked a turning point in pursuing equal opportunities for both genders. This shift towards gender equality led to changes in vocational options and household structures, particularly for females \cite{lysonski1985role,plakoyiannaki2008images,plakoyiannaki2009female,zotos2014snapshots,beel2013impact}. Moreover, the evolution of the workforce has brought about significant changes in the roles played by males and females, and this has been reflected in popular media, especially advertising \cite{zotos1994gender}. Additionally, changes in traditional family roles have resulted in significant shifts in conventional female responsibilities and, more recently, in traditional male responsibilities~\cite{grau2016gender}. Research shows that gender stereotypes are still prevalent in most of the world's countries \cite{charlesworth2022patterns}.
+
+Gender role stereotyping exists in advertising. Previous literature has demonstrated that advertising contributes to gender inequality by validating and accepting 'sexism' and distorted body image representations \cite{lysonski1985role,cortese1999provocateur,karpay2001deadly,lazar2006discover,lee2014gender}. 
+Critics state that advertisements show social stereotypes, which, in turn, reinforce stereotypical values and behavior in society. The criticism is based on \textcolor{blue}{evidence showing} that what people see or hear in the media influences their perceptions, attitudes, values, and behavior \cite{ganahl2003content,orth2004men,eagly2000social,zawisza2010matters}. Advertisers frequently utilize advertisements that integrate the interests of males/females for consumable goods according to their genders. Since people's opinion of a product or service is mainly impacted by how well they comprehend an advertisement, it stands to reason that an advertisement that appeals to their gender will be more successful in sales\cite{tartaglia2015gender,neto2016gender}. 
+
+%\textcolor{blue}{While an important part of the research on gender roles in advertising has investigated print and television advertising \textcolor{red}{[REFs]},  we also find literature addressing this issue in online platforms}  \textcolor{red}{[REFs]}.
+
+The described scenario has recently triggered different initiatives by the advertising industry and its governing bodies to address gender role stereotypes. Advertising corporations commit to developing advertisements that depict more positive gender roles by joining the Unstereotype Alliance \cite{unstereotypealliance}. Regulatory organizations are also actively involved in enacting the necessary adjustments. The World Federation of Advertisers(WFA) developed a guideline in 2018 to improve awareness of possible negative gender stereotypes \cite{wfa2018progressive}. In June 2019, the UK's Advertising Standards Authority (ASA) banned gender stereotypes in advertisements \cite{ASAGenderStereotypes}. Advertising regulatory organizations have raised similar concerns in countries such as Belgium, Finland, France, Greece, Norway, South Africa, and India \cite{safronova2019gender}. These initiatives are still for achieving meaningful results. The depiction of males and females in advertising still deviates from the ideal of representing both genders in a way that does not invoke stereotypes and promotes equal life opportunities \cite{eisend2019gender,marshall2014overt}.
+
+
+
+%Consumers perceive gender role stereotypes by social, cultural, economic, and religious variables. As a result, it is not unusual to notice distinct gender-based advertising behaviors worldwide \cite{slak2021pushing}. 
+
+
+
+\subsection{Gender price discrimination}
+Price discrimination is setting different prices for various target groups for the same product. Companies intend to increase company profits by skimming off consumers' willingness to pay for individual market segments \cite{varian1989price}. Different forms of price discrimination exist, including those based on gender, ethnicity, or religion \cite{varian1989price}.
+
+\subsubsection{Pink tax}
+
+The literature has shown the existence of gender-based price discrimination that defines the practice of manufacturers, merchants, and service providers offering the same or similar items with differential pricing for females and males \cite{guittar2022beyond,duesterhaus2011cost,abdou2019gender}. These distinctions are solely for simple product features, such as the pink, which indicates that this product is built for females. For this reason,
+this phenomenon is commonly referred to as the \emph{Pink tax} \cite{lafferty2019pink}.
+Due to the considerable impact that gender-based pricing discrimination has on gender inequality, several laws have been put into place to encourage a gender-equal advertising ecosystem  \cite{tregouet2015gender}. 
+Despite the imposed limits on gender stereotypes in advertisements, marketers can still target internet audiences by gender and implement gender-segmented marketing strategies. 
+
+Scholars and the media have undertaken numerous studies to clarify the controversy regarding discriminatory pricing based on a consumer's gender. Previous research found that 80\% of the products are gender-targeted. The pink tax operates differently in different product markets such as personal care products \cite{guittar2022beyond,duesterhaus2011cost}, labor market \cite{blau2017rthe}, car retail and car maintenance services \cite{morton2003consumer,busse2017repairing,goldberg1996dealer,ayres1995race,ayres1991fair}, and real estate \cite{goldsmith2020gender}. The 2015 study by the New York City Department of Consumer Affairs \cite{abdou2019gender}  showed that female products cost on average 7\% more than similar products for males, which vary depending on the industry as follows:
+\begin{itemize}
+    \item 7 percent more for toys and accessories
+    \item 4 percent more for children's clothing
+    \item 8 percent more for adult clothing
+    \item 13 percent more for personal care products
+    \item 8 percent more for senior/home health care products    
+\end{itemize} 
+
+
+\subsubsection{Digital marketing pink tax}
+
+\textcolor{blue}{The pink tax has spillover effects in the marketing industry, in particular in the cost of advertising. Previous literature has provided empirical evidence that advertisers pay higher prices to show an advertisement to women compared to men \cite{lambrecht2019algorithmic}. We refer to this phenomenon as the Digital Marketing Pink Tax (\emph{DMPT}). In particular, Lambrecht and Tucker \cite{lambrecht2019algorithmic} run advertising campaigns showing that the cost of showing an advertisement related to STEM-related jobs is higher when targeting women versus men. According to the authors, the reason why advertisements targeted toward women are more expensive than those targeted toward men in digital advertising is that there are more advertisers targeting women. Digital advertising platforms use an auction process to select which advertisement to display to a user, and the increased demand to target women results in a higher cost for advertisers to show advertisements to women. Using a similar methodology, Ali et al. (2019),  \cite{ali2019discrimination} confirm these results.}
+
+\textcolor{blue}{Our research expands on previous studies and aims to provide an in-depth analysis of the "pink tax" phenomenon in digital marketing. We have conducted the most extensive empirical study to date by collecting pricing data from over 4.5 million Facebook users in 227 countries, sampled 43 times over more than a month. This massive database includes information on users' gender and interests, allowing us to systematically analyze the "pink tax" phenomenon in digital marketing. Our study provides insights into how gender affects pricing in the digital marketing industry. In particular, the main findings of our analysis are:}
+% We have added a bullet point list including the main contributions/findings from the paper.
+
+\begin{itemize}
+
+\item \textcolor{blue}{The \emph{DMPT} is a systemic phenomenon in more than 88\% of the analyzed audiences. However, we have found that the \emph{DMPT} does not exist in some countries in the Middle East and Africa, showing a low Human Developed Index (\emph{HDI}).} 
+
+\item \textcolor{blue}{The median extra price advertisers pay to show advertisements to women compared to men is 14\%}
+
+\item \textcolor{blue}{After analyzing \emph{DMPT} across 22 different business sectors, we found that advertisers pay up to 64\% more DMPTy in some sectors.}
+\end{itemize}
+% \textcolor{blue}{Our paper builds on top of these seminal works and presents (to the best of our knowledge) the largest empirical study to characterize the Digital marketing pink tax phenomenon. We have collected the prices of over 4.5 million Facebook users across 227 countries sampled 43 times for a duration of more than a month. We have also differentiated them by gender and identified their interests. This extensive dataset has allowed us to conduct a systematic analysis of the "pink tax" phenomenon in digital marketing. In particular, the main findings of our analysis are:}
+
+% \begin{itemize}
+
+% \item \textcolor{blue}{The Digital marketing pink tax is a systemic phenomenon present in more than 88\% of the analyzed audiences. However, we have found that the digital marketing pink tax does not exist in some countries in the Middle East and Africa, showing a low Human Developed Index (\emph{HDI}).} 
+
+% \item \textcolor{blue}{The median extra price that advertisers have to pay to show advertisements to women in comparison to men is 14\%.}
+
+% \item \textcolor{blue}{After analyzing \emph{DMPT} across 22 different business sectors, we found that advertisers pay up to 64\% more pink tax in some sectors.}
+
+% \end{itemize}
+
+
+
+
+We structured this paper as follows: \color{blue} Section 2 provides an overview of the related works in the field. It discusses the existing research and literature on the topic.\color{black} Section 3 will provide a theoretical explanation of the \emph{DMPT} phenomena and present three main hypotheses. We will then move on to section 4, introducing Facebook as the primary data source and explaining the process we used to gather data from its marketing platform. Next, section 5 will present the methodology used to calculate the \emph{DMPT} using Facebook marketing data. Finally, in section 6, we will analyze and explore the results, devise statistical tools to test our hypothesis, and compare it with the findings of the existing literature on the consumer pink tax.
+
+\color{blue}
+\section{Related work}
+% Paragraph 1: A paragraph indicating that gender biases in the context of purchase behaviour and market gender biases has been considered in the literature and put some papers
+The literature examines gender biases in online purchase behavior. Awad and Ragowsky (2008) conducted research to determine if there is a gender bias for trust in online retailers and what men and women value in online content. They found that online trust has a lesser effect on men's intentions to purchase compared to women \cite{awad2008establishing}. Hasan (2010) investigated the gender bias in online shopping attitudes and found that men possess a higher level of positive attitudes towards online shopping \cite{hasan2010exploring}.
+
+
+% Paragraph 2: You reduce the focus, saying something that. A phenomenon that motivated our paper is the "pink tax". Explain what the pink tax is and literature addressing it
+% (you may need more than 1 paragraph for this)
+% A phenomenon that motivated our paper is the \emp{"pink tax"}() in consumer products.
+Literature on gender discrimination defined the \emph{pink tax} as the overprice that females pay compared to males to purchase similar products. There is a  body of literature that found evidence on pink tax in different industries such as personal care products \cite{guittar2022beyond,duesterhaus2011cost}, labor market \cite{blau2017rthe}, car retail and car maintenance services \cite{morton2003consumer,busse2017repairing,goldberg1996dealer,ayres1995race,ayres1991fair}, and real estate \cite{goldsmith2020gender}. Moshary et al. (2023) state that gender-based marketing exists in personal care products. However, this differs from gender discrimination in the labor market. This is because consumer packaged goods are sold at posted price markets, which means that firms cannot offer buyer-specific prices for a particular product. In contrast, labor market wages are negotiable \cite{moshary2023gender}. Clarice et al. (2021) explored the user acceptance of gender stereotypes in online advertisements. While conducting an online user study with over 200 college students, they found that, on average, participants preferred the original biased system over the debiased system. Their participants seemed to avoid careers that are dominated by the opposite sex. Their findings showed that perceived gender disparity is crucial in accepting a recommendation. This means that the issue of gender bias in AI recommendations cannot be fully addressed without addressing the problem of gender bias in human beings \cite{wang2021user}.
+
+% Paragraph 3: You reduce even more the focus to just the three papers which are relevant for \emph{DMPT}. With an initial phrase saying. Finally, the closest literature to our paper is that addressing the gender-bias in advertising pricing. 
+
+Finally, the literature that is most closely related to our paper addresses the issue of gender bias in ad-delivery and ad-pricing.
+A study by Lambrecht et al. (2019) involved a field test that aimed to promote careers in STEM, with a basic Facebook advertisement campaign displaying a simple gender-neutral banner in 191 different countries directing users to a website containing information about STEM careers. The gathered data was grouped by age and gender, and observations were made at the demographic group and country level. On average, each age group and gender combination showed 1,911 "\emph{impressions}" of the advertisement and reached 616 distinct individuals. They found that the advertisement delivery was intended to be gender-neutral, and fewer women saw the advertisements than men. They found that an algorithm that optimizes cost-effectiveness will end up discriminatory since women (especially younger women) are more expensive to show advertisements to \cite{lambrecht2019algorithmic}.
+ 
+Ali et al. (2019) conducted a study that highlighted the impact of an advertiser's budget and advertisement content on Facebook's advertisement delivery. To confirm previous research by Lambrecht et al. (2019)\cite{lambrecht2019algorithmic}, they ran an experiment with different advertisement budgets, ranging from 1\$ to 50\$, targeting users in the U.S. While keeping the advertisement creativity and targeted audience constant, they measured the effect of the daily budget on the users who saw the advertisements. Their findings showed that advertisements with lower daily budgets are delivered to fewer women due to the cost optimization algorithm provided by Facebook. In the same research, they investigated the impact of advertisement creativity (headline, text, and image). They created two highly stereotyped advertisements (one on bodybuilding and another on cosmetics) and ran two parallel campaigns, keeping the bid strategy and target audience constant. Their finding shows that despite not targeting based on gender, the bodybuilding advertisement ended up being delivered to over 75\% of men on average, while the cosmetics advertisement ended up being delivered to over 90\% of women on average \cite{ali2019discrimination}. 
+
+\color{black}
+\section{Theoretical context}
+\color{blue}
+As mentioned above, in a previous study by Ali et al. (2019)\cite{ali2019discrimination} on digital marketing, it was found that the stereotypical content of advertisements has an impact on their pricing. Specifically, the researchers discovered that it is less expensive to advertise content that is stereotypically associated with women to women than to men. It is important to note that this finding is related to how the content affects the final cost of the advertisements, which is not something that our methodology is able to examine. However, it presents a theoretical principle that raises a relevant question, which our methodology could answer: \emph{Would stereotypically female industries present a larger and/or smaller digital marketing pink tax?}
+
+Social scientists have introduced the consumer culture theory, which explores the relationship between consumer behavior, the marketplace, and culture. It helps us understand the factors that drive consumer behavior and shape our cultural identity \cite{vinacke1957stereotypes,levitt1983globalization,boddewyn1986standardization}. 
+According to the global consumer culture theory, consumers in different countries have similar attitudes, values, and behaviors regarding consumption \cite{em2003perceived}. This means that the influence of culture on consumer behavior is becoming more standardized worldwide. As a result, the consumer culture theory predicts that advertisers can expect a similar response from consumers in different countries due to the expected uniformity in consumer behavior.
+
+Studies conducted in advertising support the idea that women are less likely to be exposed to advertisements, regardless of whether they live in a wealthier or poorer country. More specifically,  Lambrecht et al. (2019) found evidence to support this hypothesis. Additionally, research by Slak et al. (2021) reveals that gender-focused advertising is prevalent worldwide due to cultural, economic, social, and religious influences on gender role stereotypes. In the context of our paper, we expect advertisers to behave similarly in all countries. Based on this expectation, we propose the following hypothesis: if the \emph{DMPT} exists, it must have a systemic effect in all countries. We will employ the methodology outlined in Section 4 to test our hypotheses.
+
+%Based on the discussion above, we developed our hypothesis: The digital marketing pink tax is unequally distributed across countries 
+
+
+
+
+%Studies have shown that advertising effectiveness is greatly influenced by the demographics of the intended audience, especially when it comes to aligning the advertisement with the gender of the audience \cite{higgins2018multivariate,ko2015examining}. Furthermore, recent research has revealed gender bias in Facebook's interests \cite{cuevas2021gender}. Congruity theory explains how gender stereotypes benefit advertisers' brands, shaping and influencing the values of its audience \cite{pollay1986distorted,pollay1987value,putrevu2004communicating,orth2003consumer} reinforcing gender stereotypes in society \cite{ganahl2003content,orth2004men,eagly2000social,zawisza2010matters}. Previous research has shown that as economic wealth (GDP) grows, the investment in the advertising sector grows at a faster rate \cite{hu2016advertisement}. Therefore, the increase in the countries' wealth may lead to the reinforcement of stereotypes and inequality. 
+% Consumer culture theory also leadvertisements us to a similar conclusion.
+
+
+\color{black}
+
+
+\section{Methodology}
+% \subsection{Online advertising platforms}
+This paper investigates the prevalence of gender-based price discrimination and the pink tax in online advertising. To achieve this, we used Facebook to gather data on advertising costs and compare the expenses of advertisements targeted toward females and those targeted at males. Facebook is a well-known and widely used online advertising platform that allows businesses to launch campaigns across several channels, such as \emph{Facebook, Instagram, Audience Network, and Messenger}. In addition, it offers advertisement-targeting features that enable businesses to reach their target audience precisely. Facebook Advertisements Manager is the primary tool for buying Facebook, Instagram, and Audience Network advertisements. This Facebook-owned advertisement management tool helps businesses set budgets, establish bids, and obtain results regardless of budget constraints \cite{facebook_business}. The following section will explain why we chose Facebook as a dependable data source for our research.
+\subsection{Why Facebook?}
+The Facebook marketing platform is a highly sought-after tool for advertisers seeking to optimize their campaigns. With a staggering 93\% of marketing specialists utilizing Facebook's platform for their digital advertisement campaigns, it is no wonder why it is considered one of the most popular advertising platforms worldwide \cite{FBStat}. Facebook offers the ability to advertise across multiple platforms and gathers valuable data from its vast audiences, generating a comprehensive reach database that enables advertisers to target the most relevant audiences for their products and campaigns. It is worth noting that Facebook's primary source of revenue is advertising, with over 98\% of its revenue coming from this avenue. Therefore, the platform is committed to providing advertisers with the most effective means of reaching their target audience. Achieving this goal necessitates Facebook collecting data on users' interests, demographics, behavior, and interactions across multiple platforms\cite{fb-revenue}.
+
+Facebook has an extensive range of products and services, including Facebook, Instagram, Messenger, WhatsApp, and Oculus VR. Each platform gathers data on users' activities and preferences, which Facebook can leverage to produce an all-encompassing profile of each user. This profile encompasses age, gender, location, interests, behavior, user interactions, and content \cite{fb-products}. In addition, Facebook utilizes various tools and technologies to monitor users' activities and behavior across various platforms, including cookies, pixels, and SDKs. By doing so, Facebook can compile information on users' browsing history, app usage, and device details, enabling the platform to enhance its advertisement-targeting capabilities \cite{facebook_ad_targeting}. 
+Advertisers on Facebook have access to a range of targeting options based on users' interests, demographics, behaviors, and interactions. These options include custom and lookalike audiences, as well as interest targeting. Facebook gathers data from users across multiple platforms to create these targeting options. However, Facebook has faced regulatory scrutiny and controversies over its data practices, such as the Cambridge Analytica scandal\cite{rosenberg2018trump} and Apple's privacy changes in iOS 14.5\cite{verge2021}. These events have brought attention to the extent of Facebook's data collection and usage and its potential risks. Although Facebook has improved its privacy and data protection practices, its advertising revenue still depends on collecting and using user data. In light of the substantial impact that advertising has on human behavior and the market for online advertisements, it is worth considering whether equal opportunities are provided for individuals of different genders in online advertisement ecosystems. Such an inquiry may help ensure these systems are fair and equitable and contribute positively to the broader social and economic landscape.
+
+\subsection{Retrieving data from Facebook}
+Facebook's marketing platform allows advertisers to customize their campaigns to reach specific target audiences based on location, gender, age, and interests. Once an advertiser sets their target audience criteria, Facebook showcases the advertisements to match the audiences. The advertiser also has the option to set a daily budget for their advertisements, which can be used to gain clicks. To sell user profiles, Facebook employs a sophisticated auction process. When users log in, Facebook utilizes their profile information to match them with relevant advertisement campaigns and then runs an auction to determine which advertisement will ultimately be displayed. While the exact algorithm used in the auction is undisclosed, factors such as the advertiser's bid and overall budget are considered.
+
+
+Advertisers must track the success of their advertisement campaign using key performance indicators (KPIs) such as Cost Per Mille (CPM) and Cost Per Click (CPC). CPM indicates the cost of showing 1,000 impressions of the advertisement, while CPC measures the cost of acquiring a click on the advertisement. To assist in making informed budget decisions, Facebook's marketing API offers an endpoint that calculates the daily budget required to target a specific audience. This estimate is based on recent auction results for advertisement placement with that particular audience. Additionally, Facebook provides price estimation curves for a given audience based on 15 data points. Such tools enable an advertiser to optimize advertisement spend and achieve maximum ROI.
+
+Advertisers can select the desired curve type by specifying a parameter when utilizing the API query. For example, selecting the \emph{optimization=IMPRESSIONS} parameter will yield a curve displaying the budget on the x-axis and the number of impressions on the y-axis, indicating the optimization algorithm.\color{blue} Advertisers can accurately estimate the CPM by dividing the x-axis value by the y-axis value at a given point on this curve. However, if they choose the \emph{optimization=LINK CLICKS} parameter, the curve will display the budget on the x-axis and the number of clicks on the y-axis. Dividing the x-axis value by the y-axis at a given point on this curve will provide an accurate CPC estimate. Figure \ref{fig:sampleCurve} visually represents these price estimation curves. This valuable information enables advertisers to confidently make informed decisions regarding expected CPM and CPC for a specific audience.\color{black}
+
+
+\begin{figure}[h!]
+    \centering
+\caption{Sample price curve provided by Facebook}
+    \label{fig:sampleCurve}
+\end{figure}
+
+
+
+After conducting a thorough investigation of price estimation curves, we have discovered that CPM(CPC) values are not consistent across the curves. Our analysis has shown that the starting points on the curves, which correspond to lower budgets, exhibit significantly different CPM(CPC) values compared to the remaining points. The final points on the curve correspond to budget values most commonly used by marketers, and sufficient data points from Facebook are used to estimate this value. Therefore, we have utilized the final point of the curve to achieve robust results.
+
+
+The main purpose of this paper is to investigate the existence of a \emph{DMPT}. This refers to a situation where advertisers pay a systematically higher price CPM(CPC) to target female audiences than male audiences. We use the \emph{Facebook marketing platform}, which Facebook made publicly available and we described in the previous section, to conduct our research. This approach is consistent with previous studies using the \emph{Facebook marketing platform API} to extract marketing data from social media websites (OSNs)\cite{gonzalez2017fdvt,korolova2010privacy,chen2013much,liu2014measurement,saez2014beyond,marciel2016value,saha2017characterizing, mehrjoo2022new}. We created a software library that automatically queries the \emph{Facebook marketing platform API}. The software calculates each audience's CPM and CPC estimation curves based on the price estimation curves obtained for thousands of audiences. The following characteristics define our audiences:
+
+\begin{itemize}
+    \item \emph{gender}: Our approach to evaluating marketing expenses for different target groups relies on Facebook's two gender classifications: Male and Female. This enables us to identify any potential \emph{DMPT} and compare the CPM(CPC) expenditure for marketing to male versus female audiences.
+ \item \emph{Location (Country)}: We thoroughly researched the connection between the \emph{DMPT} and location by gathering data from Facebook users across multiple countries. Our investigation centered on the user's home location, a dependable indicator of their permanent residency. Facebook employs IP addresses and profile information to determine a user's home location precisely. 
+    \item \emph{Interests}:\color{blue} Our dataset for research is designed to be comprehensive and impartial, covering a diverse range of interest topics. To achieve this, we collected an audience based on 10,000 gendered interests ranked by level of masculinity, as outlined in our research \cite{cuevas2021gender}. To create a comprehensive list of interests, we selected the 1,000 most common words in English \footnote{Facebook provides interest IDs that are language-independent. For instance, "Dog" and "Perro" have the same ID because they are the English and Spanish words for the same thing.}, as well as all possible combinations of one, two, and three letters. For each one of these words and letter combinations, we query the Facebook Marketing API for up to 1,000 interests that match or contain these letters. This gives us a list of 308,568 interests. We keep the interests with a worldwide Facebook audience of more than one million but less than one billion, which yields 45,397 interests. The next step is to limit the interest to the most masculine/feminine interests and rank them based on the masculinity index. For this purpose, we used Singular Value Decomposition (SVD) and considered one singular vector, which had a distinct dependency on the audience gender, to rank the masculinity of the interests. Using SVD, we filtered 5,000 of the most feminine and 5,000 of the most masculine interests, leaving us with 10,000 interests ranked with their masculinity level. \color{black}  
+\end{itemize}
+
+We have created a metric to analyze the presence of the \emph{DMPT}. This metric enables us to compare the bias of CPC(CPM) prices for a particular audience based on their gender parameter.
+\color{blue}
+\[DMPT=\frac{price_f-price_m}{price_{m}}\times 100 \]
+\color{black}
+The variables, \(price_f\) and \(price_m\), signify the advertising cost for females and males, respectively, either through advertisement display (CPM) or obtaining a click (CPC). The overall advertising expense without specifying gender is represented by \(price_{all}\). The \emph{DMPT} sign denotes which gender has a higher advertising cost. A positive (negative) \emph{DMPT} number suggests that females (males) are more expensive. The \emph{DMPT}'s absolute value represents a relative measurement of the audience's gender bias. For example, a \emph{DMPT} of 20\% implies that advertising to females is 20\% costlier than advertising to males, compared to the benchmark price of the same audience, without considering gender (\(price_{all}\)).
+
+Our research examines the \emph{DMPT} value of numerous audiences, providing us with significant data to ascertain whether the \emph{DMPT} is a sporadic occurrence or a systemic issue. Additionally, we evaluated the impact of economic and industry-related factors on the \emph{DMPT} by analyzing the data across various targeted consumer aspects. The upcoming section will discuss the marketing data collected to analyze the pink tax phenomenon in marketing.
+
+\color{blue}
+Our research focused on advertisement-delivery bias in Facebook. Since Facebook optimizes advertisement delivery based on the chance of successful user conversions, we used fresh Facebook marketing accounts with no advertising history. This approach helped us eliminate the effect of advertisement content on advertisement-delivery bias \cite{lambrecht2019algorithmic,ali2019discrimination}.
+\color{black}
+\subsection{Dataset}
+Our dataset includes \emph{DMPT} values for over 4.5 million unique audiences, created through the combination of 227 countries, two gender groups (male, female), and 10,000 interests marked with a masculinity score obtained from literature\cite{cuevas2021gender}. Our dataset primarily contains one \emph{DMPT} value per audience on different dates, and we calculate the CPM of the 15th point on the estimation curve based on 43 samples taken between 16-Nov-2022 and 19-Jan-2023. To investigate the \emph{DMPT} across different price types and determine if calculating the pink tax using different points on the curve impacts the results, we compute multiple \emph{DMPT} values associated with different points (all 15 points) of the price estimation curves, as well as the median CPM and CPC values between 17-Jan-2023 and 25-Jan-2023. Overall, we gathered over 97 million data points in our dataset for analyzing the presence of \emph{DMPT} in different countries and industries. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{center}
+    \begin{table}[!t]
+    \caption{The specifications of the dataset 
+    {\label{tab:Datasets}}}
+    \begin{adjustbox}{center}
+
+\begin{tabular}{|l|c|}
+    \hline
+    Dataset &  Specifications \\
+    \hline
+      samples & 43  \\countries & 227  \\ interests & 10,000 \\ period & 16/11/2022 - 19/12/2022 \\& and 17/1/2023 - 25/1/2022 \\
+     sampled curve points & 1 (16/11/2022 - 19/12/2022)\\& 15 (17/1/2023 - 25/1/2022)\\
+
+
+    \hline
+\end{tabular}
+\end{adjustbox}
+
+
+ \end{table}
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+\section{Results and discussion}
+In this study, we have conducted an analysis of the \emph{DMPT} across various audiences. We aim to delve deeper into this phenomenon and determine whether the hypotheses we have developed based on the theoretical discussion in section 2 are substantiated by evidence. Our findings will be presented in the following sections.
+\subsection{Is \emph{DMPT} a systemic phenomenon?}\label{systemic}
+
+To Answer this question, we computed the \emph{DMPT} distribution for the more than 4.5 Million audiences in our dataset for both the CPM and CPC. In particular, Figures \ref{fig:CPMPoints} and \ref{fig:CPCPoints} present the CDFs of the \emph{DMPT} associated with CPM and CPC, considering the 15th  point of the price curves, respectively. Note that Figure \ref{fig:CPCPoints} presents the 9 days \emph{DMPT} distributions in our dataset between 17-Jan-2023 and 25-Jan-2023, and Figure \ref{fig:CPMPoints} presents the 32-day \emph{DMPT} distributions in our dataset between 16-Nov-2023 and 25-Jan-2023. 
+
+\begin{figure}[h!]
+    \centering
+
+\color{blue}
+\caption{Culumative distribution of \emph{DMPT} using CPM between 16/11/2022 and 25/1/2023}
+    \label{fig:CPMPoints}
+\end{figure}
+
+\begin{figure}[h!]
+\color{blue}
+    \centering
+\caption{Culumative distribution of \emph{DMPT} using CPC between 11/1/2023 and 25/1/2023}
+    \label{fig:CPCPoints}
+\end{figure}
+
+\color{blue} 
+According to our findings, there is a systematic \emph{DMPT} for CPM (Cost Per Mille) in our dataset. This means that, on average, 79\% of our audience exhibits \emph{DMPT}. Additionally, advertisers must pay an average of 22\% (with a median of 19\% and a standard deviation of 13\%) more to show advertisements to females than males. On the other hand, when using CPC (Cost Per Click) to calculate \emph{DMPT}, the median, average, and standard deviation become respectively 1.2\%, 7.8\%, and 3\%, which is significantly lower than \emph{DMPT} using CPM.\color{black} The median \emph{DMPT} in CPC is considerably low. This means that advertising cost per click is almost equal for both genders. We can explain this observation using the formula for calculating \emph{click-through ratio(CTR)} using CPM and CPC. CTR is the portion of the audience that clicks on the advertisements shown to the audiences. Higher values of CTR mean that a high percentage of people who see an advertisement on a website also click on it.   
+
+\[ CPC= \frac{Cost}{Clicks}\]
+\[ CPM= \frac{Cost}{impressions}\times{1000}\]
+\[ CTR= \frac{Clicks}{impressions}\]
+
+Therefore, we can calculate CTR given CPM and CPC as follows: 
+\[ CTR= \frac{CPM}{CPC}\times{0.001}\]
+
+It has been observed that CPM (cost per thousand) is higher for females, while CPC (cost per click) is almost equivalent for both genders. This indicates that the click-through rate (CTR) is higher for females than males.\color{blue} This means that advertisers can get more clicks from female audiences while displaying the same number of advertisements to both genders. This finding is supported by a study by Lambrecht et al. (2019), which found that women are more likely to convert \cite{lambrecht2019algorithmic}. \color{black}
+Moreover, prior literature on gender variances in response to advertisements has demonstrated that females assimilate more cues when making judgments than males, implying that they are more likely to require supplementary information for decision-making \cite{keshari2014consumer}. This need for information may result in more clicks, leading to a greater number of clicks from female audiences than males. Additionally, research has found that more women than men click on advertisements \cite{marketingprofs}. Therefore, our findings align with previous studies on audience behavior regarding gender.
+
+
+
+
+
+Nevertheless, CPC is a complex metric that involves factors beyond advertisers' willingness to attain their objectives, such as content material and the attractiveness of the advertisement banner, the psychological factors behind the topic's appeal, the quality and reliability of the advertisement's placement, and more. Consequently, CPC is not a reliable metric for analyzing the pink tax marketing phenomenon. Hence, the following subsections use CPM as our metric to investigate the pink tax in various countries and industries. 
+
+
+
+Once we have proven \emph{DMPT} for CPM is a systemic phenomenon in the Facebook advertising ecosystem, we want to make some analyses to understand important factors that may be linked to the \emph{DMPT}. Therefore, in the remainder of the section, we study how three factors relate to the \emph{DMPT} phenomenon. In particular, we study 1) \emph{DMPT} in different countries, 2) the \emph{DMPT} across different country locations, and 3) the \emph{DMPT} that exists in different industries.
+
+
+
+\begin{figure}[h!]
+\color{blue}
+    \centering
+\caption{Culimative distribution of \emph{DMPT} for points 2 to 15 on the CPM estimated price curve for all the audiences }
+    \label{fig:CPMPointsAll}
+\end{figure}
+    
+\begin{figure}[h!]
+\color{blue}
+    \centering
+\caption{Culimative distribution of \emph{DMPT} for points 2 to 15 on the CPC estimated price curve for all the audiences }
+    \label{fig:CPCPointsAll}
+\end{figure}
+
+
+
+
+\color{blue}
+\subsection{\emph{DMPT} in different countries}\label{geopoli}
+
+The literature on the pink tax reveals that domestic policy choices that shape globalization can disadvantage females in their role as consumers\cite{betz2021women}. While trade policy largely ignores consumer interests \cite{betz2019absence}, political inequalities among consumers leave a clear imprint. Complementing existing work on gender differences in trade preferences \cite{guisinger2017american,mansfield2015men}. As we discussed before, the \emph{DMPT} affects the end user price discrimination, resulting in a consumer pink tax. We analyzed our dataset to see whether the \emph{DMPT} behaves differently worldwide. 
+
+To better understand the impact of economic and cultural variations on \emph{DMPT}, we calculate the median pink tax of all interests to determine the pink tax level per country. Figure \ref{fig:PinkWorld} illustrates our dataset's \emph{DMPT} geographic distribution in 227 countries. In addition, we have plotted the countries where Facebook does not operate (e.g., Russia, Iran, and Cuba) using the color black. This figure demonstrates the existence of a clear \emph{DMPT} in most of the world (88\% of the 227 countries existing in our database).
+
+
+\begin{figure}[h!]
+\color{blue}
+    \centering
+\caption{Variation of the average Facebook \emph{DMPT} across countries}
+    \label{fig:PinkWorld}
+\end{figure}
+
+To further analyze the relationship between the country's development and the \emph{DMPT}, we use the classification of countries according to their \emph{HDI}. The \emph{HDI} summarizes the average achievement in key dimensions of human development: a long and healthy life, knowledge, and decent living standards. The \emph{HDI} is the geometric mean of normalized indices for each of the three dimensions \cite{undp}. We calculated the median of the pink tax value across 10k interests for each country in our dataset. It is worth mentioning that the \emph{DMPT} for each interest is calculated using the 15$^{th}$ point in the associated CPM curve. Pearson's correlation between \emph{DMPT} and \emph{HDI} is \color{blue}0.4 (p-value is 2e-8), which shows a statistically significant positive correlation between \emph{DMPT} and \emph{HDI}\color{black}. Table \ref{tab:hdi_pink} shows the variation of the \emph{DMPT} across the countries grouped by their \emph{HDI} value. The criteria for this categorization is defined by the United Nations Development Program(UNDP) \cite{HDI}. \color{blue} Figure \ref{fig:HDIReg} presents the correlation between these two variables for the countries in our dataset. This regression plot and the significant positive Pearson correlation indicate a clear dependence between \emph{DMPT} and country development.\color{black}
+
+\begin{figure}[h!]
+\color{blue}
+    \centering
+\caption{Relations between \emph{HDI} and \emph{DMPT} across countries grouped by the development}
+    \label{fig:HDIReg}
+\end{figure}
+\color{black}
+Higher developed countries are expected to deal with a higher \emph{DMPT}. Furthermore, as indicated in Table \ref{tab:hdi_pink}, a greater percentage of countries with high levels of development are dealing with the \emph{DMPT}. Notably, the \emph{DMPT} has been observed in 92\% of the most developed countries. Conversely, only 52\% of less developed countries are impacted by this phenomenon, underscoring the fact that the \emph{DMPT} is a more pressing concern in highly developed countries. One possible explanation could be that the existing direction for economic development leads to gender inequality. \color{blue}The literature on the consumer pink tax had a similar observation and found strong evidence of the positive correlation between \emph{Gross Domestic Product (GDP) per capita} and the consumer pink tax \cite{betz2021women}. These findings indicate that both the consumer pink tax and the \emph{DMPT} are more severe problems for economically developed countries. Therefore, policymakers should consider that in the absence of solid regulation in the online advertisement ecosystem, the country's development may lead to a higher gender gap.\color{black}
+
+
+\begin{center}
+    \begin{table}[!t]
+        \caption{Median value of the marketing pink for countries categorized by their human development
+        {\label{tab:hdi_pink}}}
+        \begin{adjustbox}{center}
+
+
+\color{blue}
+\begin{tabular}{|l|r|r|c|}
+\hline
+HDI category & \multicolumn{1}{l|}{DMPT} & \multicolumn{1}{l|}{HDI} & \multicolumn{1}{l|}{\% positive DMPT} \\ \hline
+Low          & 1.12                    & 0.49        &    52\%          \\
+Medium       & 3.20                     & 0.62        &    53\%    \\
+High         & 9.10                     & 0.75         &    83\%     \\
+Very high    & 21.1                    & 0.88            &    92\%   \\ \hline
+\end{tabular}
+\end{adjustbox}
+
+
+
+
+
+
+
+     \end{table}
+\end{center}
+
+
+
+
+
+\subsection{\emph{DMPT} across different industries}
+The existing literature reported the existence of the consumer pink tax in various industries/categories, including vehicles, personal care, and real estate \cite{guittar2022beyond,duesterhaus2011cost,morton2003consumer,busse2017repairing,goldberg1996dealer,ayres1995race,ayres1991fair,goldsmith2020gender,guittar2022beyond,investopedia2021,duesterhaus2011cost}. This indicates that females must pay more for similar items and services than males. This section delves more into the data and analyzes the pink tax marketers should pay in different industries. More specifically, we analyzed the pink tax in the classical 24 industries specified by IAB Tier1 taxonomy \cite{IABTechLab}, the reference standard used in the online advertising industry.        
+
+
+
+
+We have already calculated the \emph{DMPT} for 10,000 interests. Next, we must identify which industry the interests fall under to investigate the \emph{DMPT} for each industry. We used two alternative methods to classify the interests into different industries:
+
+
+\begin{enumerate}
+
+\item We used GPT API to map Facebook interests to 24  
+distinct IAB version 2.2 standard tier 1 interest categories \cite{IABTechLab}. IAB defines the reference categories' standard used in the advertising industry. Since the GPT API returns more accurate results when sending queries with less text length, we broke the list of 10k interests into 500 batches of 20 interests. Then we pragmatically sent requests using GPT API, asking each time the following question:
+
+\begin{verbatim}
+Map topics in list1 to the topics in list2,
+writing the results in CSV format,
+list2=<LIST OF 20 INTERESTS IN THE BATCH>
+list2=<LIST OF IAB TIER1 CATEGORIES>
+e.g., Toyota, Automotive;
+\end{verbatim}
+
+ We cleaned up the responses to have one table per batch, which we combined to produce a single table mapping all the interests to their corresponding IAB Tier 1 category. The appendix contains a sample GPT API answer, while the entire dataset and the code are provided in the article's online repository. 
+
+%  We selected 500 random interest topics that the GPT4 algorithm had categorized into "Food and Drink" and "Automotive" and prepared a questionnaire asking three participants to categorize each of these 500 interests into one of the following categories:
+% \begin{itemize}
+%     \item Food and Drink
+%     \item Automotive
+%     \item Uncategorized
+% \end{itemize} 
+% We compared the responses of three participants who had similar interests and considered them as the "ground truth". Then, we used GPT-4 to categorize the interests and compared the results with the ground truth responses. The results showed that 98\% of the model's categorizations were in agreement with the ground truth participants' responses, indicating that the model can be trusted. Therefore, we have decided to use it for our analysis going forward. All the materials for this experiment are available in the appendix.
+
+\item We utilized a categorization method introduced in academic literature \cite{cuevas2021gender} to classify interests. This approach uses Facebook's Graph API to map each interest in our dataset to one of the  14 root categories defined in the Facebook marketing platform. 
+
+\end{enumerate}
+\color{blue} Additionally, we tested the robustness of the GPT API categorization abilities by designing an experiment.
+For this purpose, we have selected a random sample of 100 interests from the 10k interests in our datasets and asked three independent participants to map these 100 interests into the 24 IAB Tier 1 categories. We followed a similar approach and asked these three participants to 100 randomly selected Facebook interests we used in this research into the 14 Facebook root categories. These participants were allowed to search the interest's names online and select up to three related categories. 
+Ultimately, we selected those interests that had been classified by at least two individuals into the same category and considered such category the ground-truth category of the interest. This manually-labeled list of interests serves as ground-truth data to validate the performance of our methods. 
+
+In particular, we compute the percentage of interests in this list for which our method correctly assigns the ground-truth category. The results show that the success rate was 79\% for GPT-API classification interests into IAB categories. The Facebook classification method also has a success rate of 72\%. When we limited the ground truth data to similar responses across participants to reduce human error, we observed that IAB categorization provided the correct answer in 85\% of the cases. Facebook could also accurately categorize the interests into the correct categories in 84\% of the cases. Therefore, based on the results of the reported experiments, the performance of our methods is good.
+\color{black} 
+
+Our first technique enabled us to accurately categorize 8,976 interests into the standard IAB Tier 1 categories, whereas the second approach could classify only 3,348 interests into the 14 root Facebook categories. Since the first approach is able to map a significantly major fraction of interests into categories, we opted to use it to analyze different industries. We utilized the second categorization method to analyze the robustness of our findings. In particular, we select the common categories between the 24 IAB Tier 1 and the 14 Facebook root categories, e.g., Sports or Education. We assess the coherence of our two categorization methods in mapping interests by analyzing the overlapping categories.
+
+
+Based on our first approach, the entire mapping table for each interest into a category can be found in this article's online repository. Moreover, Table \ref{tab:CatPink} shows (1) the 24  IAB tier 1 categories 
+(2) the pink tax value of each category is computed as the median pink tax value of the interests mapped into such a category; (3) The masculinity ranking of the category is again computed as the median masculinity ranking of each interest mapped in the category.
+
+% Table \ref{tab:CatIgnacio} shows the same metrics for the 14 Facebook parent categories using our second categorization approach. \color{blue} 
+% The Spearman’s correlation between the masculinity ranking and the DMPT values for the 14 Facebook parent categories leads to a similar conclusion as before (Spearman’s correlation = -0.67, p = 0.0093).
+\color{blue}The Spearman's correlation value between masculinity and \emph{DMPT} using 24 IAB interest is moderately high and negative with 5\% significance (Spearman’s correlation = -0.6, p = 0.0018), suggesting that the \emph{DMPT} is higher in categories with higher masculinity. In simpler terms, advertisers are willing to pay a slightly higher amount to target females in industries that have a bias toward females. One reason behind this observation could be the fact it is less possible to find and target females interested in high masculinity categories such as automotive. The Spearman's correlation value between masculinity and \emph{DMPT} using 14 Facebook interests is not statistically significant (Spearman’s correlation = -0.24, p = 0.49), and we cannot draw any conclusion based on that. 
+\color{black}
+% 
+
+As introduced above, to assess the robustness of our categorization, we computed the relative difference of the \emph{DMPT} value for the 6 categories present in both classification methods (See Tables \ref{tab:CatPink} and \ref{tab:CatIgnacio}). \color{blue} According to Table 3, the average, maximum, and minimum \emph{DMPT} values among the categories are 14.5, 17.5 (“Hobbies \& Interests”), and 10.4 (“Real Estate”), respectively. These categories are Sports, travel, food and drink, technology, business, and education. Comparing the \emph{DMPT} values in Table 3 versus Table 4 for the mentioned categories, we will respectively have 0.3(2\%), 0.5(3\%),0.7(5\%),0.7(5\%),1(7\%), and 1(8\%) difference. Therefore, with a 10\% threshold (considering the maximum absolute difference is 50\% of the average value), we can say that both categorizations are able to lead us to a similar conclusion. This high similarity in the results offered by two independent categorization methods guarantees the correctness of our categorization exercise. \color{black}
+
+\color{blue} Our initial methodology for analysis involves using the industry-standard categorization system provided by IAB, which provides a wider range of coverage. As we have already explained in this section, we achieved a reliability rate of 85\% using the language model for categorization. Therefore, we will proceed with our first categorization method for analysis, which is presented in Table \ref{tab:CatPink}. 
+
+
+
+
+\begin{center}
+
+    \begin{table}[!t]
+        \caption{\emph{DMPT} in different industries/categories
+        {\label{tab:CatPink}}}
+\color{blue}
+        \begin{adjustbox}{width=\columnwidth,center}
+
+\begin{tabular}{|l|rrrr|}
+\hline
+
+                            &  DMPT           &Masculinity  & Male & Interests  \\ 
+                            IAB Tier 1 category                    &             &rank  & audience &  count \\ 
+          &        &  & ratio &  \\ \hline
+               Automotive &      12.890 &       2,572 &              2.520 &        635 \\
+                   Sports &      15.125 &       2,180 &              2.163 &        727 \\
+   Technology \&  &     &       &               &         \\
+   \& Computing &     12.338 &       2,054 &              1.538 &        577 \\
+         Personal Finance &      13.451 &       1,742 &              1.276 &         70 \\
+Law Government \& &      &        &               &         \\
+ Politics &     14.384 &       1,132 &              1.208 &        415 \\
+                 Business &      13.427 &        975 &               1.251 &        338 \\
+              Real Estate &      10.357 &        443 &               1.167 &         30 \\
+                     News &      14.045 &        228 &               1.192 &        176 \\
+          Illegal Content &      13.868 &         98 &               1.125 &         45 \\
+                  Careers &      13.802 &         92 &               1.135 &        143 \\
+     Arts \&  &      &       &                &        \\
+     Entertainment &     14.207 &       -158 &               1.157 &       1,955 \\
+                Education &      14.861 &       -194 &               1.104 &        228 \\
+                  Science &      14.208 &       -226 &               1.222 &        306 \\
+      Hobbies \& &      &        &                &         \\
+      Interests &     17.516 &       -393 &               1.300 &        175 \\
+                   Travel &      16.551 &       -505 &               1.095 &        663 \\
+                  Society &      13.941 &       -712 &               1.118 &        197 \\
+            Home \& &      &        &                &         \\
+            Garden &     15.336 &       -817 &               1.072 &        273 \\
+  Religion \& &      &       &               &         \\
+  Spirituality &     15.084 &      -1,875 &              1.165 &        198 \\
+                 Shopping &      16.090 &      -1,931 &              0.793 &        263 \\
+             Food \&  &      &       &               &         \\
+             Drink &     15.085 &      -1,936 &              0.991 &        480 \\
+         Health \&  &      &       &               &         \\
+         Fitness &     15.265 &      -1,945 &              1.113 &        327 \\
+                     Pets &      16.544 &      -2,273 &              1.026 &        120 \\
+          Style \&  &      &       &               &         \\
+          Fashion &     16.993 &      -2,423 &              0.750 &        506 \\
+       Family \&  &      &       &               &         \\
+       Parenting &     13.502 &      -2,850 &              0.899 &        129 \\
+\hline
+    \end{tabular}
+
+\end{adjustbox}   
+  \end{table}
+\end{center}
+
+\begin{figure}
+\color{blue}
+    \centering
+\caption{Relations between the masculinity of the IAB interest categories Tier 1 and \emph{DMPT}}
+    \label{fig:mascIabReg}
+\color{black}
+\end{figure}
+
+\color{black}
+Our first general observation is that the pink tax is present in all IAB industries/categories, with \emph{DMPT} values ranging between 10 \emph{Real Estate} and 17 \emph{Hobbies and Interests}. There are two important takeaways from these results. Conversely, the median \emph{DMPT} paid by advertisers to attract women's attention (compared to men) is roughly superior to 10\% regardless of the category. On the other hand, there is a significant variation in the \emph{DMPT} assumed by advertisers depending on the category. For instance, the median \emph{DMPT} to target a woman based on interest related to \emph{Hobbies and Interests} is \textcolor{blue}{64\%} higher than interests falling in the \emph{Real Estate} category. We hypothesize that this significant difference in the median overprices across categories may be related to the gender (male or female)bias of the different categories.
+
+To assess the correctness of our hypothesis, we have analyzed the correlation between the masculinity (i.e., gender bias) of a category and the median \emph{DMPT} value of the category. Each of the 10k interests in our dataset is assigned a masculinity rank ranging between +5,000 for the most masculine categories to -5,000 for the most feminine (i.e., least masculine) category. The Masculinity column in Table \ref{tab:CatPink} provides for each IAB category the median masculinity rank across the interests included in such category.
+
+% \color{blue}
+% Our analysis uses Spearman's correlation, considering the masculinity ranking and the \emph{DMPT} value of each of the 22 IAB categories. The analysis revealed no strong evidence that the \emph{DMPT} is related to the masculinity of the topical category (Spearman's correlation = -0.6, p = 0.002). However, it is important to note that the observed correlation was statistically significant at the 0.1 level. The moderately high negative value of Spearman's correlation indicates that the  \emph{\emph{DMPT}} is higher in those categories, presenting a feminine gender bias. In other words, advertisers are willing to pay a higher overprice to attract female attention in industries with a bias toward females.
+\color{black}
+
+
+Finally, to conclude our analysis in this section, we discuss the obtained results in the context of the existing literature for some of the considered categories:
+
+\begin{itemize}
+\item \textbf{ Health \& Fashion :} The literature on personal care found strong evidence of the presence of a pink tax in the price of lotion (37\%) and deodorants (16\%) \cite{guittar2022beyond}. Similar observations were reported by Gend et al. (2011) \cite{duesterhaus2011cost} by finding strong evidence for a 20\% pink tax on deodorants. 
+An explanation would be that the fashion industry is more directed towards luxury goods \cite{mckinsey2023}. In most markets and product categories, female luxury brands are much more expensive than similar male products. According to the available literature, these discrepancies may be due to a larger perceived symbolic and social significance of such luxury brands, which have traditionally been more important for females than males \cite{stokburger2013luxury}. This discussion confirms our findings that marketers pay \color{blue}a median \emph{DMPT} value of 15\% to advertise their health products (within the \emph{Health and Fitness} category) to females. Furthermore, our findings indicate marketers should pay slightly more \emph{DMPT} (17\%) to advertise \emph{Style and Fashion products}.
+\color{black}
+
+
+
+\item \textbf{Sports:}
+Our results show relatively high \textcolor{blue}{\emph{DMPT} (15\%)} for the Sports category. Commercialization has infiltrated all levels of sports, from community sports participation to elite professional sports. Due to the audience and media exposure of professional sport, sponsorship in this context is best suited to satisfying commercially driven objectives \cite{vance2016beyond}. Despite growing commercialization and professionalization, females' sport as a standalone product has received minimal attention. However, female sports' professionalism and associated commercial opportunities started to grow in 2017, \cite{morgan2019examination}.
+
+\item \textbf{Education:}
+Global organizations like UNESCO are following different strategies to reduce the gender gap in education \cite{unesco2019}. Our results show that despite these efforts, we can still observe a relatively high value of the \emph{DMPT} in the education \textcolor{blue}{(15\%)} category. Furthermore, the literature raises concerns about masculinity and the social norms for careers related to STEM \cite{beede2011women}. Our results show a \textcolor{blue}{14\%} \emph{DMPT} in both the Career and Science categories. The existing literature explains how advertisements affect social norms and expectations \cite{royne2021power}. This finding is coherent with the existing literature on the gender gap in online social network advertisements, indicating men were exposed to  20\% more impressions related to STEM than women \cite{lambrecht2019algorithmic}. Therefore, global organizations and policymakers should consider the critical role of monetary incentives and the \emph{DMPT} in their strategy to reduce this gap. 
+
+\end{itemize}
+
+\subsection{Robustness analysis}
+We analyzed the pink tax phenomenon comprehensively by repeating the same analysis on all the price estimation curve points. We aimed to determine whether the \emph{DMPT} only exists in a specific budget range or can be observed in all budgets. The outcomes are shown in Figures \ref{fig:CPMPointsAll} and \ref{fig:CPCPointsAll}, which show the \emph{DMPT} curves for CPM and CPC, respectively. The data includes the \emph{DMPT} value for nine days from January 11th to January 25th, 2023. While the initial points on the curve may be more erratic for lower budgets, we can still see evidence of the pink tax when calculating the \emph{DMPT} value using estimated prices for all 15 points on the price estimation curve.
+This robustness analysis supports that the \emph{DMPT} is a systemic phenomenon in the whole spectrum of advertising budget reported by Facebook's price curves for the CPM. Instead, there is no \emph{DMPT} in the case of CPC.
+
+
+\section{Causes of the digital marketing pink tax}
+\color{blue}
+Previous research in the area of gender-based prices in online advertising was conducted by Lambrecht et al. (2019) \cite{lambrecht2019algorithmic} provides the most reliable explanation of the causes that produce the \emph{DMPT}. After analyzing the data from large-scale advertisement campaigns on STEM jobs, the authors have concluded that the auction-based design of algorithms, which selects the relevant advertisement to be shown to a user, is the main cause behind the \emph{DMPT}. Specifically, in a scenario where advertiser A targets both genders and advertiser B targets only women, the auction nature of advertising platforms' algorithms increases the cost of showing advertisements to women. If we extrapolate this rationale to the online advertising ecosystem,  in which a larger number of advertisers specifically target women than men, the auction algorithms would lead to higher costs to show advertisements to women than men. In a later work, Ali et al. (2019) have experimentally demonstrated that this proposition is accurate \cite{ali2019discrimination}.
+
+In summary, the literature concludes that advertising platforms do not artificially introduce the \emph{DMPT} phenomenon. Instead, the auction algorithms that govern the advertisement delivery process and a higher advertisers' demand to target female audiences result in the observed \emph{DMPT}.
+In our paper, we built on these seminal works and demonstrated that the \emph{DMPT} is a widespread phenomenon in a vast majority of countries. More specifically, we found that the \emph{DMPT} is more severe in developed countries. Moreover, industries with a stereotypical bias towards females will experience a higher \emph{DMPT}. 
+
+Existing literature also helps us to understand why more advertisers target women-specific audiences. On the one hand, Lambrecht et al. (2019) \cite{lambrecht2019algorithmic} empirically observed that women are more likely to convert when exposed to advertisements, thus making them a more appealing target. 
+%On the other hand, there exist a body of literature showing that the volume and total spending of women in purchases is higher than men \cite{male_vs_female_spending}.
+On the other hand, previous works, like The Harvard Business Review Reports, show that women make the decision in most household purchases. In particular, they take the decision in the purchases of 94\% of home furnishings, 92\% of vacations, 91\% of homes, 60\% of automobiles, 51\% of consumer electronics \cite{silverstein2009female}. This indicates that females traditionally control household expenses, making them a more interesting target for marketers. Increasing the demand for showing ads to females may result in a higher market price for their impression and explain the preference for targeting women-specific audiences mentioned above.
+
+
+
+
+
+
+\color{black}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+ 
+
+
+
+\section{Conclusion and future works}
+This research shows how publicly available social media marketing data can be used to understand social trends. The paper introduces the concept of Digital Marketing Pink Tax(\emph{DMPT}) using existing theoretical frameworks and borrowing from the previously studied \emph{Consumer Pink Tax}. Additionally, a new method was introduced that uses online social networks to measure the \emph{DMPT} in more than 200 countries. This technique is cost-effective, accessible, and scalable. We used this approach to determine whether advertisers must pay more to deliver Facebook advertisements to females or males. We found that over \textcolor{blue}{88\%} of the audience is exposed to DMPT, meaning advertisers must pay more to deliver advertisements to females than males in \textcolor{blue}{88\%}  of the audiences. This result suggests that the \emph{DMPT} is a systemic phenomenon.
+
+Our comprehensive analysis shows that the pink tax presents differently in various countries and industries. Our investigation of over 10,000 interests across 227 countries indicates that the \emph{DMPT} is prevalent in \color{blue}74\%of world countries. Moreover, our study shows that the human development index at the country level, which encompasses economic, educational, and health factors, positively correlates with the occurrence of the pink tax. Specifically, the pink tax is present in 92\%, 83\%, 53\%, and 52\% of countries with very high, high, medium, and low development, respectively. Furthermore, in these countries, advertising costs for females are 21\%, 9\%, 3\%, and 1\%  higher than males. Thus, the pink tax is arguably an unintended consequence of the advancement of human society, and policymakers should address this issue. Despite, the efforts by international organizations to reduce the gender gap in education, our results show that this industry's \emph{DMPT} remains relatively high (15\%). Our research also highlights concerns about social norms in STEM careers, as we found a \emph{DMPT} of 14\% in the Career and Science categories.
+
+To summarize, our analysis of data from Facebook's advertising platforms across 227 countries indicates that the issue of gender-based price discrimination is systematic. It affects 88\% of audiences worldwide and 92\% of audiences in developed countries. However, our research suggests that countries in the Middle East and Africa with a low Human Development Index (\emph{HDI}) do not experience this phenomenon. Advertisers must pay a median value of 14\% more to display advertisements to women than men. In addition, our investigation of 22 business sectors shows that some advertisers have to pay up to 64\% more \emph{DMPT}.This paper introduces a novel approach to examining the pink tax, a prevalent issue in the literature, by considering it from a distinct perspective. The pink tax in marketing refers to the additional expenses advertisers incur to target females, which ultimately contributes to gender inequality and the consumer pink tax. 
+ 
+\color{black}
+
+% Our analysis shows that the \emph{DMPT} is present across all industries, which supports previous research on the topic. Additionally, we present initial evidence that the overpriced advertisers pay to attract women. Notably, the \emph{DMPT} has been observed in 92\% of the most developed countries. Conversely, only 52\% of less developed countries are impacted by this phenomenon, underscoring the fact that the \emph{DMPT} is a more pressing concern in highly developed countries. 
+% n's attention is higher in categories presenting a feminine gender bias.
+
+
+\section{Limitations}
+\color{blue} Our study has some limitations that should be considered when interpreting the results. In this research, we used the estimated winner bid prices of the audiences provided by Facebook using the history of the winner bids. Although the literature assessed the credibility of these estimations, our research findings lack investigation of the role of the advertising content (e.g., images and graphics) in the \emph{DMPT}. Therefore, further investigation is required to determine how advertising content may impact the \emph{DMPT}. Secondly, our study only analyzed Facebook advertising data, and other online advertising platforms may have different algorithms that could tackle the \emph{DMPT}. \color{black}In the end, further investigation is needed to determine the causal connection between the \emph{DMPT} and political and social variables in human development. This remains an open topic for future research. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{backmatter}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\bibliographystyle{bmc-mathphys} \bibliography{bmc_article}      
+
+
+
+
+
+
+
+
+\section*{Declarations}
+
+\subsection*{Availability of data and materials}
+All data generated or analyzed during this study are included in this published article.
+
+
+
+
+\subsection*{Competing interests}
+The authors declare that they have no competing interests 
+\subsection*{Authors' contributions}
+
+Ruben Cuevas contributed to the design of the paper, the development of the measurement methodology, and the paper writing.
+Amir Reza Mehrjoo contributed to the design of the paper, the execution of the experiments, and the paper writing.
+Angel Cuevas contributed to the design of the paper, the development of the measurement methodology, and the paper writing.
+
+\subsection*{Funding and Acknowledgements}
+This research received funding from the European Union’s Horizon  2020 innovation action program under the PIMCITY project (Grant 871370) and the TESTABLE project (Grant 101019206).The Agencia Estatal de Investigación (AEI) under the ACHILLES project (Grant PID2019-104207RB-I00/AEI/10.13039/501100011033). The Madrid Government (Comunidad de Madrid-Spain) under the Multiannual Agreement  with UC3M (“Fostering Young Doctors Research”, UE-MEASURE-CM-UC3M), the agreement between the Community of Madrid and 
+the Universidad Carlos III de Madrid.
+
+\subsection*{Abbreviations}
+Digital marketing pink tax; \emph{DMPT}, Artificial intelligence; AI, Science Technology Engineering Mathematics;STEM, Human Developed Index;\emph{HDI},cost per thousand; CPM, cost per click ; CPC, click-through rate ;CTR ,United Nations Development Program ; UNDP, UK’s Advertising Standards Authority ;ASA, World Federation of Advertisers ;WFA, Singular Value Decomposition ;SVD , Application User Interface ;API , Gross Domestic Product;GDP , Online Social Network;OSN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{Appendix}
+
+The data we gathered for this research is available in the articles' \url{https://github.com/AmirXmj/PinkTax.git}.
+
+
+
+\subsection*{Facebook penetration}
+
+\begin{figure}[h!]
+    \centering
+\caption{ Worldwide distribution of monthly active Facebook users divided by the population}
+    \label{fig:FBpenetration}
+  \end{figure}
+
+\color{blue}
+
+
+
+\subsection*{Gpt4 API response sample}
+
+Toyota,Automotive  ; Mario Bautista,Arts \& Entertainment  ; UEFA,Sports  ; Basketball,Sports  ; FIFA World Cup,Sports  ; Cycling,Sports  ; Play (telecommunications),Technology \& Computing  ; BMW M,Automotive  ; Linux,Technology \& Computing  ; Mobile app,Technology \&Computing  ; Juventus F.C.,Sports  ; Military,Law Government \& Politics  ; Coup,Illegal Content  ; Sedan (automobile),Automotive  ; Ford Motor Company,Automotive  ; Team sport,Sports  ; Finance,Personal Finance  ; Lamborghini,Automotive  ; Speed (1994 film),Arts \& Entertainment  ; Investment,Personal Finance  ; Gamer,Arts \& Entertainment
+
+
+\subsection*{Gpt4 API validation}
+The experiment material is available in the article's online repository (\url{https://github.com/AmirXmj/PinkTax.git}). 
+% Experiment setup:
+% We randomly selected 500 interests related to the "Food and Drink" and "Automotive" categories. We chose these two categories as they were distinct, reducing the participant's cognitive bias. After that, we created a questionnaire for three participants to categorize each of these 500 interests into one of the following three categories: Food and Drink, Automotive, or No category. The questionnaires and the participants' responses are available in the article's online repository.
+
+% Experiment analysis:
+% We kept 449 interest categories out of 500 by aggregating the interest categorization data and only preserving the categories agreed upon by all the participants.
+% After carefully analyzing 449 interests with our methodology, we were able to identify 441 categories that were agreed upon by both the ground truth data and the language model. This indicates that our methodology is reliable and effective in accurately categorizing interests.
+
+
+% Result:
+% Our experiment demonstrated that the language model accurately categorized interest topics with 98\% precision, indicating reliable results.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{center}
+
+    \begin{table}[!t]
+        \caption{\emph{DMPT} in Facebook interests level 2 
+        {\label{tab:CatIgnacio}}}
+        \color{blue}
+        % \begin{adjustbox}{center}
+        \begin{tabular}{|l|rrrr|}
+\hline
+Interest                    &Masculinity           &     DMPT             & Male  & Interests  \\ 
+category                    & Rank          &                  & audience  & count  \\ 
+                    &       &                           & ratio    &  \\ \hline 
+        Sports and  &      &   &              &          \\
+        outdoors &      2,071 &  15.436 &             0.863 &         540 \\
+                 Technology &      2,070 &  13.035 &             2.163 &         273 \\
+     Hobbies and &         &   &              &         \\
+     activities &        786 &  13.944 &             2.177 &        1,054 \\
+      Business and  &         &  &              &         \\
+      industry &        670 &  14.458 &             1.543 &        1,637 \\
+     News and  &          &   &              &         \\
+     entertainment &         14 &  14.557 &             0.825 &        1,674 \\
+                     People &        -57 &  14.222 &             0.701 &         754 \\
+  Travel,                    &        &  &              &         \\
+  places and events &       -133 &  16.048 &             0.905 &         924 \\
+      Lifestyle and &        &   &              &         \\
+      culture &       -512 &  14.674 &             3.754 &         452 \\
+                  Education &       -610 &  13.846 &             1.340 &         169 \\
+             Food and drink &     -1,774 &  14.409 &             2.266 &         454 \\
+       Fitness and &     &   &              &          \\
+       wellness &     -1,930 &  14.437 &             2.006 &         183 \\
+       Shopping and &      &  &              &         \\
+        fashion &     -2,532 &  15.967 &             1.498 &         376 \\
+   Family and &      &   &              &           \\
+   relationships &     -3,945 &  14.687 &             2.292 &          45 \\
+
+\hline
+\end{tabular}
+% \end{adjustbox}
+     \end{table}
+\end{center}
+ 
+\begin{figure}
+\color{blue}
+    \centering
+\caption{Relations between the masculinity of the Facebook interests level 2 and \emph{DMPT}}
+    \label{fig:mascFbReg}
+\end{figure}
+\color{black}
+
+
+\begin{figure}
+\color{blue}
+    \centering
+\caption{Relations between the male audience ratio of the IAB interest categories Tier 1 and \emph{DMPT}}
+    \label{fig:maleRatioIabReg}
+\color{black}
+\end{figure}
+
+\begin{figure}
+\color{blue}
+    \centering
+\caption{Relations between the male audience ratio of the Facebook interests level 2 and \emph{DMPT}}
+    \label{fig:maleRatioFbReg}
+\color{black}
+\end{figure}
+
+
+
+
+\end{backmatter}
+
+
+\end{document}
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+
+\geometry{top=1in} 
+\geometry{bottom=1in} 
+\geometry{left=0.5in} 
+\geometry{right=0.5in} 
+\pagestyle{empty} 
+\begin{document}
+
+
+\section*{Figures}
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/sampleCurve.png}
+    \caption{Sample price curve provided by Facebook}
+    \label{fig:sampleCurve}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/CPMPoints.png}
+    \caption{Culumative distribution of DMPT using CPM between 16/11/2022 and 25/1/2023}
+    \label{fig:CPMPoints}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/CPCPoints.png}
+    \caption{Culumative distribution of DMPT using CPC between 11/1/2023 and 25/1/2023}
+    \label{fig:CPCPoints}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[height=\textheight]{Figures/CPMPointsAll.png}
+    \caption{Culimative distribution of DMPT for points 2 to 15 on the CPM estimated price curve for all the audiences }
+    \label{fig:CPMPointsAll}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[height=\textheight]{Figures/CPCPointsAll.png}
+    \caption{Culimative distribution of DMPT for points 2 to 15 on the CPC estimated price curve for all the audiences }
+    \label{fig:CPCPointsAll}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/PinkWorld.png}
+    \caption{Variation of the average Facebook digital marketing pink tax across countries}
+    \label{fig:PinkWorld2}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/FBpenetration.png}
+    \caption{Variation of the average Facebook digital marketing pink tax across countries}
+    \label{fig:PinPen}
+\end{figure}
+\end{document}
